@@ -8,12 +8,30 @@ class ProductItem extends StatelessWidget {
   final String title;
   final String imageUrl;
 
-  ProductItem(this.id, this.imageUrl, this.title);
+  ProductItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Image.network(),
+      child: Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+      ),
+      footer: GridTileBar(
+        backgroundColor: Colors.black38,
+        leading: IconButton(
+          icon: Icon(Icons.favorite),
+          onPressed: (() {}),
+        ),
+        title: Text(
+          title,
+          textAlign: TextAlign.center,
+        ),
+        trailing: IconButton(
+          icon: Icon(Icons.shopping_cart),
+          onPressed: (() {}),
+        ),
+      ),
     );
   }
 }

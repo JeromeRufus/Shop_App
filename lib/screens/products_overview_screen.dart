@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models.dart/products.dart';
+import '../widgets/product_item.dart';
 
 class ProductOverview extends StatelessWidget {
   //const ProductOverview({Key? key}) : super(key: key);
@@ -55,7 +56,11 @@ class ProductOverview extends StatelessWidget {
           mainAxisSpacing: 10,
         ),
         itemCount: loadedProduct.length,
-        itemBuilder: ((context, index) => Container()),
+        itemBuilder: ((context, index) => ProductItem(
+              loadedProduct[index].id,
+              loadedProduct[index].title,
+              loadedProduct[index].imageUrl,
+            )),
       ),
     );
   }
