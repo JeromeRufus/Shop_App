@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/products_grid.dart';
 
-import '../models.dart/products.dart';
+import '../providers/products.dart';
 import '../widgets/product_item.dart';
 import '../widgets/products_grid.dart';
 

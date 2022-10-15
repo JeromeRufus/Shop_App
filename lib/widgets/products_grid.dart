@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models.dart/products.dart';
-import '../providers/products.dart';
+import '../providers/providers_pack.dart';
 import 'product_item.dart';
 
-class ProductGrid extends StatelessWidget {
+class  ProductGrid extends StatelessWidget {
   //const ProductOverview({Key? key}) : super(key: key);
 
   @override
@@ -20,10 +19,14 @@ class ProductGrid extends StatelessWidget {
         mainAxisSpacing: 10,
       ),
       itemCount: products.length,
-      itemBuilder: ((context, index) => ProductItem(
-            products[index].id,
-            products[index].title,
-            products[index].imageUrl,
+      itemBuilder: ((context, index) => ChangeNotifierProvider.value(
+            //Builder: (context) => products[index],
+            value: products[index],
+            child: ProductItem(
+              products[index].id,
+              products[index].title,
+              products[index].imageUrl,
+            ),
           )),
     );
   }
