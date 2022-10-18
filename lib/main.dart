@@ -4,7 +4,7 @@ import 'package:shop_app/providers/providers_pack.dart';
 import 'package:shop_app/screens/product_detail_screen.dart';
 import 'package:shop_app/screens/products_overview_screen.dart';
 
-import './providers/products.dart';
+import '../providers/products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +16,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: Products(),
+    return ChangeNotifierProvider(
+      create: (context) => Products(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
           title: 'MyShop',
           theme: ThemeData(
             primarySwatch: Colors.purple,
